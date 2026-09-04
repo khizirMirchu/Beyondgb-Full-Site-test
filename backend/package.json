@@ -1,0 +1,19 @@
+{
+  "name": "beyondgb",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BeyondGB travel website and admin backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "create-admin": "node create-admin.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.6.2",
+    "helmet": "^8.3.0"
+  }
+}

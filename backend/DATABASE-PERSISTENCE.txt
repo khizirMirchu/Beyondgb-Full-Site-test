@@ -1,0 +1,24 @@
+BEYONDGB DATABASE - AUTHORITATIVE PROJECT DATA
+
+This beyondgb.db is the current authoritative database for this project.
+It contains the current admin accounts and existing enquiry records, plus the CMS tables required by the current version.
+
+IMPORTANT:
+- Do NOT delete or replace backend/beyondgb.db when updating website files.
+- Future update ZIPs should preserve this database unless a database migration is explicitly requested.
+- Before installing any future update, make a backup copy of backend/beyondgb.db.
+- The server uses backend/beyondgb.db by default unless BEYONDGB_DB_PATH is intentionally configured.
+- Database initialization uses CREATE TABLE IF NOT EXISTS and migrations; it must never reset or drop existing content.
+
+Current data in this database at packaging time:
+- Admin accounts: 2
+- Enquiries: 12
+- Tours: 0 (previous tour records were already lost before this database was uploaded)
+- Destinations: 0
+- Gallery: 0
+- Testimonials: 0
+- Journal: 3 starter articles
+- FAQ: 6 starter questions
+- Site settings: default settings
+
+From this point onward, add your real tours/destinations/etc. to THIS database. Keep a backup before every project update.
