@@ -1,0 +1,63 @@
+:root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17211b;background:#f4f5f2;line-height:1.5}*{box-sizing:border-box}body{margin:0}.admin-shell{max-width:1180px;margin:0 auto;padding:32px 20px 60px}.card{background:#fff;border:1px solid #dfe4df;border-radius:18px;box-shadow:0 8px 30px rgba(20,35,25,.06);padding:28px}.login-card{max-width:440px;margin:12vh auto}.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:800;margin:0 0 8px}.muted{color:#66736a}.hidden{display:none!important}h1,h2,p{margin-top:0}.login-card h1{margin-bottom:4px}form{display:grid;gap:16px;margin-top:24px}label{font-size:14px;font-weight:700;display:grid;gap:7px}input,select,textarea{width:100%;border:1px solid #cfd7d0;border-radius:10px;padding:12px 13px;font:inherit;background:#fff}textarea{resize:vertical}button{font:inherit;cursor:pointer;border-radius:10px;padding:11px 16px;border:1px solid transparent}.primary{background:#17211b;color:#fff;font-weight:700}.primary:disabled{opacity:.6;cursor:not-allowed}.ghost{background:#fff;border-color:#cfd7d0}.message{min-height:20px;color:#a33;margin:0}.topbar{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:18px}.topbar h1{margin:0}.top-actions{display:flex;align-items:center;gap:12px}.tabs{display:flex;gap:8px;overflow:auto;margin:0 0 20px;padding-bottom:2px}.tab{background:#fff;border-color:#d5ddd6;color:#334038;white-space:nowrap}.tab.active{background:#17211b;color:#fff;border-color:#17211b}.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-bottom:20px}.stat{background:#fff;border:1px solid #dfe4df;border-radius:14px;padding:18px}.stat strong{font-size:30px;display:block}.stat span{color:#66736a;font-size:13px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:20px}.enquiries{display:grid;gap:12px}.enquiry{border:1px solid #e0e5e1;border-radius:14px;padding:18px}.enquiry-head{display:flex;justify-content:space-between;gap:12px}.enquiry h3{margin:0 0 3px}.badge{font-size:12px;font-weight:800;padding:5px 9px;border-radius:999px;background:#eef1ee}.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0;color:#445149;font-size:14px}.meta strong{display:block;color:#17211b}.enquiry p{margin-bottom:10px}.enquiry-actions{display:flex;gap:8px;flex-wrap:wrap}.enquiry-actions select{width:auto}.danger{background:#fff;border-color:#e0b9b9;color:#9b2e2e}.empty{padding:30px;text-align:center;color:#66736a;border:1px dashed #cfd7d0;border-radius:12px}.filters{display:flex;gap:10px;align-items:center;min-width:min(520px,100%)}.filters input{min-width:260px}.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}.quick-card{text-align:left;background:#f8faf8;border:1px solid #dfe4df;display:grid;gap:5px}.quick-card span{color:#66736a}.tour-form{background:#f7f9f7;border:1px solid #dfe4df;border-radius:14px;padding:18px;margin-bottom:20px}.tour-form.hidden{display:none}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.checkbox-label{display:flex;align-items:center;gap:8px;flex-direction:row;margin-top:4px}.checkbox-label input{width:auto}.form-actions{display:flex;gap:8px}.tour-list{display:grid;gap:12px}.tour-card{border:1px solid #e0e5e1;border-radius:14px;padding:18px}.tour-card.inactive{opacity:.7}.tour-card-main{display:flex;justify-content:space-between;gap:18px}.tour-card-title{display:flex;align-items:center;gap:10px}.tour-card-title h3{margin:0}.tour-card p{margin:7px 0}.tour-actions{display:flex;gap:8px;align-items:flex-start;flex-shrink:0}.tour-image-path{font-size:12px;color:#66736a;margin-top:10px;word-break:break-all}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.topbar,.section-head{align-items:flex-start;flex-direction:column}.meta{grid-template-columns:1fr}.top-actions{width:100%;justify-content:space-between}.filters{width:100%;min-width:0;flex-direction:column;align-items:stretch}.filters input{min-width:0}.form-grid{grid-template-columns:1fr}.tour-card-main{flex-direction:column}.tour-actions{align-items:stretch}.quick-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.stats{grid-template-columns:1fr}.admin-shell{padding:18px 12px}.card{padding:20px}.tabs{margin-bottom:14px}.tour-actions{flex-direction:column}}
+
+.gallery-admin-list{display:grid;gap:12px}.gallery-admin-card{border:1px solid #e0e5e1;border-radius:14px;padding:14px;display:grid;grid-template-columns:150px 1fr auto;gap:16px;align-items:center}.gallery-admin-card.inactive{opacity:.65}.gallery-admin-preview{width:150px;height:105px;border-radius:10px;overflow:hidden;background:#eef1ee}.gallery-admin-preview img{width:100%;height:100%;object-fit:cover;display:block}.gallery-admin-main h3{margin:0}.featured-badge{background:#f3ead6}.gallery-admin-main p{margin:6px 0}@media(max-width:700px){.gallery-admin-card{grid-template-columns:1fr}.gallery-admin-preview{width:100%;height:180px}}
+
+.testimonial-admin-list{display:grid;gap:14px;margin-top:20px}.testimonial-admin-card{display:flex;gap:20px;justify-content:space-between;align-items:flex-start;padding:20px;border:1px solid #dfe4df;border-radius:14px;background:#fff}.testimonial-admin-card.inactive{opacity:.65}.testimonial-admin-main{flex:1}.testimonial-admin-stars{color:#b8892f;letter-spacing:.08em;margin:8px 0}
+
+.settings-subhead{border-top:1px solid #e0e5e1;padding-top:18px;margin-top:4px}.settings-subhead h3{margin:0 0 4px}.settings-subhead p{margin:0}
+
+@media(max-width:800px){.admin-shell{width:100%;overflow:hidden}.section-head{width:100%}.enquiry-head{flex-direction:column}.enquiry-actions{width:100%}.enquiry-actions select{width:100%}.gallery-admin-card,.testimonial-admin-card{min-width:0}.tour-card-main{min-width:0}.tour-card-title{min-width:0}.tour-card-title h3{overflow-wrap:anywhere}}
+@media(max-width:480px){.top-actions{flex-wrap:wrap}.top-actions button{flex:1}.tabs{max-width:100%;padding-bottom:8px}.stats{gap:10px}.stat{padding:14px}.card{overflow:hidden}}
+
+/* Targeted additions only: preserve the original 39-40 admin UI. */
+.testimonial-admin-card{min-width:0}
+.testimonial-admin-main{min-width:0;overflow-wrap:anywhere}
+.testimonial-admin-review{min-width:0}
+.testimonial-admin-review .expandable-text-body{margin:7px 0 4px;overflow-wrap:anywhere;word-break:break-word}
+.testimonial-admin-review.is-collapsed .expandable-text-body{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+.testimonial-admin-review .see-more-btn{font-size:.88rem;margin-top:2px}
+.availability-manager{margin-top:20px}
+.availability-note{overflow-wrap:anywhere;word-break:break-word}
+
+/* Global admin long-content protection: keeps the 39-40 layout intact. */
+html,body{max-width:100%;overflow-x:hidden}
+.admin-shell{width:100%;min-width:0}
+.card,.tour-form,.enquiry,.tour-card,.gallery-admin-card,.testimonial-admin-card,.stat,.quick-card{min-width:0;max-width:100%}
+.topbar,.section-head,.enquiry-head,.tour-card-main,.testimonial-admin-card{min-width:0}
+.topbar>*,.section-head>*,.enquiry-head>* ,.tour-card-main>* ,.testimonial-admin-card>*{min-width:0;max-width:100%}
+.meta{grid-template-columns:repeat(3,minmax(0,1fr));min-width:0}
+.filters{min-width:0;max-width:100%;flex-wrap:wrap}
+.filters input{min-width:0;flex:1 1 260px}
+.filters select{min-width:0;max-width:100%}
+.tour-card-title,.tour-card-title h3,.gallery-admin-main,.testimonial-admin-main{min-width:0;max-width:100%}
+.tour-card-title h3,.gallery-admin-main h3,.testimonial-admin-main h3,.enquiry h3{overflow-wrap:anywhere;word-break:break-word}
+.tour-card p,.enquiry p,.gallery-admin-main p,.testimonial-admin-main p,.testimonial-admin-review,.availability-note,.card p,.card strong,.card span{overflow-wrap:anywhere;word-break:break-word;max-width:100%}
+.tour-image-path{max-width:100%;overflow-wrap:anywhere;word-break:break-word;white-space:normal}
+.tour-actions,.enquiry-actions{min-width:0;flex-shrink:0}
+.gallery-admin-card{grid-template-columns:minmax(110px,150px) minmax(0,1fr) auto}
+.testimonial-admin-card{grid-template-columns:minmax(0,1fr) auto;display:grid}
+.testimonial-admin-main{overflow:hidden}
+.testimonial-admin-card>.tour-actions,.testimonial-admin-card>.testimonial-admin-actions{min-width:0}
+input,select,textarea{min-width:0;max-width:100%}
+button{max-width:100%}
+@media(max-width:800px){
+  .admin-shell{padding-left:18px;padding-right:18px}
+  .topbar{flex-wrap:wrap}
+  .top-actions{min-width:0}
+  .section-head{flex-wrap:wrap}
+  .meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tour-card-main{flex-wrap:wrap}
+  .tour-actions{flex:0 0 auto}
+  .gallery-admin-card{grid-template-columns:1fr}
+  .testimonial-admin-card{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .admin-shell{padding-left:12px;padding-right:12px}
+  .meta{grid-template-columns:1fr}
+  .top-actions{width:100%;justify-content:flex-end}
+  .tour-actions{width:100%;flex-wrap:wrap}
+}
+
+.enquiry-crm-grid{display:grid;grid-template-columns:minmax(160px,.4fr) minmax(0,1fr);gap:10px;margin-top:12px}.enquiry-crm-grid label{font-size:13px}.enquiry-crm-grid textarea{min-height:64px}@media(max-width:800px){.enquiry-crm-grid{grid-template-columns:1fr}}

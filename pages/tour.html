@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Journey | BeyondGB</title>
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="../js/seo-performance.js?v=1" defer></script>
+</head>
+<body>
+<header class="nav"><div class="container nav-inner">
+<a class="brand" href="../index.html">
+<img src="../assets/logo/logo.webp" alt="BeyondGB logo" loading="eager" decoding="async">
+<span class="brand-text">BEYONDGB</span>
+</a>
+<nav class="nav-links">
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="destinations.html">Destinations</a>
+<a href="tours.html">Journeys</a>
+<a href="gallery.html">Gallery</a>
+<a href="blog.html">Journal</a>
+<a href="faq.html">FAQ</a>
+<a class="btn btn-primary" href="plan.html">Plan Your Trip</a>
+</nav>
+</div></header>
+
+<section class="inner-hero">
+<div class="container">
+<div class="breadcrumbs">Home / Journeys</div>
+<h1 id="tourTitle">Loading…</h1>
+</div>
+</section>
+
+<section class="section">
+<div class="container split">
+<div class="tour-media-column">
+<div class="image-frame" id="tourImage"></div>
+<div class="tour-description-below">
+<span class="eyebrow">About this journey</span>
+<div class="expandable-text"><p id="tourDescription" class="expandable-text-body"></p><button id="tourDescriptionMore" type="button" class="see-more-btn" data-see-more hidden>See more</button></div>
+</div>
+</div>
+
+<div class="content-wrap">
+<span class="eyebrow" id="tourLocation">Journey</span>
+<h2 id="tourHeading">Loading…</h2>
+
+<div class="destination-facts">
+<div class="destination-fact">
+<span>Duration</span><strong id="tourDuration">—</strong>
+</div>
+<div class="destination-fact">
+<span>Starting price</span><strong id="tourPrice">Contact us</strong>
+</div>
+</div>
+
+<section id="tripCostCalculator" class="trip-calculator" aria-labelledby="calculatorTitle">
+<span class="eyebrow">Plan your budget</span>
+<h3 id="calculatorTitle">Estimate your trip cost</h3>
+<p class="muted">Use the starting price and optional services to get a quick estimate. No payment is taken online.</p>
+<div class="calculator-grid">
+<label class="calculator-category">Destination / tour<select id="calcCategory"></select></label>
+<label>Travelers<input id="calcTravelers" type="number" min="1" max="50" value="2"></label>
+<label>Days<input id="calcDays" type="number" min="1" max="60" value="1"></label>
+<label>Accommodation<select id="calcAccommodation"></select></label>
+<label>Transport<select id="calcTransport"></select></label>
+</div>
+<label class="calculator-check"><input id="calcActivity" type="checkbox"><span>Activities / experiences <small data-activity-rate>PKR 0 / person</small></span></label>
+<div class="calculator-breakdown">
+<div><span>Journey base</span><strong id="calcBase">PKR 0</strong></div>
+<div><span>Accommodation</span><strong id="calcAccommodationTotal">PKR 0</strong></div>
+<div><span>Transport</span><strong id="calcTransportTotal">PKR 0</strong></div>
+<div><span>Activities</span><strong id="calcActivityTotal">PKR 0</strong></div>
+<div class="calculator-total"><span>Estimated total</span><strong id="calcTotal">PKR 0</strong></div>
+</div>
+<p id="calcNote" class="calculator-note">Loading calculator…</p>
+<a id="calcPlan" class="btn btn-primary" href="plan.html">Plan this journey</a>
+</section>
+
+<div class="tour-detail-lists">
+<div><h3>Included</h3><ul id="tourIncluded"></ul></div>
+<div><h3>Not included</h3><ul id="tourExcluded"></ul></div>
+</div>
+
+<div class="tour-itinerary-section"><span class="eyebrow">Day-by-day plan</span><div id="tourItinerary" class="tour-itinerary-list"><p class="muted">Loading itinerary…</p></div></div>
+
+<section class="tour-map-section"><span class="eyebrow">Explore the route</span><h3>Interactive journey map</h3><p class="muted">The map highlights the locations found in this journey's itinerary.</p><div id="gbInteractiveMap" class="gb-interactive-map" data-type="tour" data-title="Journey route"></div><small class="map-attribution-note">Map data © OpenStreetMap contributors.</small></section>
+
+<div class="tour-media-gallery-section"><span class="eyebrow">Journey photos</span><div id="tourMediaGallery" class="tour-media-gallery"><p class="muted">Loading photos…</p></div></div>
+
+<section class="tour-reviews-section"><span class="eyebrow">Customer reviews</span><div id="tourReviews" class="tour-reviews-list"><p class="muted">Loading reviews…</p></div><form id="reviewForm" class="tour-review-form"><input name="customer_name" maxlength="120" required placeholder="Your name"><select name="rating" aria-label="Rating"><option value="5">★★★★★</option><option value="4">★★★★☆</option><option value="3">★★★☆☆</option><option value="2">★★☆☆☆</option><option value="1">★☆☆☆☆</option></select><textarea name="review" maxlength="2000" rows="4" required placeholder="Share your experience"></textarea><input name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true"><button class="btn btn-primary" type="submit">Submit review</button><p id="reviewFormMessage" class="muted" role="status"></p></form></section>
+
+<div class="tour-action-row"><a id="tourPlan" class="btn btn-primary" href="plan.html">Plan this journey</a><button id="tourSave" class="btn btn-secondary" type="button">Save journey</button><button id="tourPrint" class="btn btn-secondary" type="button">Print journey</button><button id="tourShare" class="btn btn-secondary" type="button">Share journey</button></div><div class="tour-availability-section"><span class="eyebrow">Upcoming dates</span><div id="tourAvailability" class="tour-availability-list"><p class="muted">Loading availability…</p></div></div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container footer-bottom">
+<span>© 2026 BeyondGB. All rights reserved.</span>
+<span>No online payments — discuss your trip privately with our team.</span>
+</div>
+</footer>
+
+<script src="../js/app.js" defer></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<script src="../js/tour-detail.js?v=21" defer></script>
+<script src="../js/trip-calculator.js?v=1" defer></script>
+<script src="../js/gb-map.js?v=1" defer></script>
+<script src="/js/travel-assistant.js" defer></script></body>
+</html>

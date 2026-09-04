@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BeyondGB Admin</title>
+  <link rel="stylesheet" href="/admin/admin.css?v=6">
+</head>
+<body>
+  <noscript><div style="padding:20px;font-family:system-ui">JavaScript is required for BeyondGB Admin.</div></noscript>
+  <main class="admin-shell">
+    <section id="loginView" class="card login-card">
+      <p class="eyebrow">BEYONDGB</p>
+      <h1>Admin Login</h1>
+      <p class="muted">Private management area.</p>
+      <form id="loginForm">
+        <label>Username<input id="username" autocomplete="username" required></label>
+        <label>Password<input id="password" type="password" autocomplete="current-password" required></label>
+        <button class="primary" type="submit">Sign in</button>
+        <p id="loginMessage" class="message" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="dashboardView" class="hidden">
+      <header class="topbar">
+        <div><p class="eyebrow">BEYONDGB</p><h1>Dashboard</h1></div>
+        <div class="top-actions"><span id="adminName"></span><button id="logoutButton" class="ghost">Log out</button></div>
+      </header>
+
+      <nav class="tabs" aria-label="Admin sections">
+        <button class="tab active" data-tab="overviewTab">Overview</button>
+        <button class="tab" data-tab="enquiriesTab">Enquiries</button>
+        <button class="tab" data-tab="toursTab">Tours & Packages</button>
+        <button class="tab" data-tab="galleryTab">Gallery</button>
+        <button class="tab" data-tab="testimonialsTab">Testimonials</button>
+        <button class="tab" data-tab="destinationsTab">Destinations</button>
+        <button class="tab" data-tab="settingsTab">Settings</button>
+        <button class="tab" data-tab="journalTab">Journal</button>
+        <button class="tab" data-tab="faqTab">FAQ</button>
+      </nav>
+
+      <section id="overviewTab" class="tab-panel">
+        <div class="stats" id="stats"></div>
+        <section class="card">
+          <h2>Admin overview</h2>
+          <p class="muted">Use the tabs above to manage customer enquiries and your tour/package catalogue.</p>
+          <div class="quick-grid">
+            <button class="quick-card" data-open-tab="enquiriesTab"><strong>📩 Enquiries</strong><span>Review and update customer requests.</span></button>
+            <button class="quick-card" data-open-tab="toursTab"><strong>🏔️ Tours & Packages</strong><span>Add and edit tour information without changing HTML.</span></button>
+          <button class="quick-card" data-open-tab="destinationsTab"><strong>📍 Destinations</strong><span>Manage the destinations shown on your website.</span></button>
+            <button class="quick-card" data-open-tab="testimonialsTab"><strong>⭐ Testimonials</strong><span>Manage customer reviews shown on the website.</span></button>
+          </div>
+        </section>
+      </section>
+
+
+      <section id="journalTab" class="tab-panel hidden">
+        <section class="card"><div class="section-head"><div><h2>Journal</h2><p class="muted">Create and manage public articles.</p></div><button id="addJournalButton" class="primary" type="button">+ Add article</button></div><div id="journalMessage" class="message"></div><form id="journalForm" class="tour-form hidden"><input id="journalId" type="hidden"><div class="form-grid"><label>Title<input id="journalTitle" maxlength="180" required></label><label>Category<input id="journalCategory" maxlength="100"></label><label>Author<input id="journalAuthor" maxlength="120"></label><label>Cover image<input id="journalImage" maxlength="500"></label></div><label>Excerpt<textarea id="journalExcerpt" maxlength="500" rows="3"></textarea></label><label>Content<textarea id="journalContent" maxlength="12000" rows="8" required></textarea></label><label class="checkbox-label"><input id="journalPublished" type="checkbox" checked> Published / visible</label><div class="form-actions"><button class="primary" type="submit">Save article</button><button id="cancelJournalButton" class="ghost" type="button">Cancel</button></div></form><div id="journalList" class="tour-list"></div></section>
+      </section>
+      <section id="faqTab" class="tab-panel hidden">
+        <section class="card"><div class="section-head"><div><h2>FAQ</h2><p class="muted">Manage questions shown on the public FAQ page.</p></div><button id="addFaqButton" class="primary" type="button">+ Add question</button></div><div id="faqMessage" class="message"></div><form id="faqForm" class="tour-form hidden"><input id="faqId" type="hidden"><div class="form-grid"><label>Question<input id="faqQuestion" maxlength="500" required></label><label>Category<input id="faqCategory" maxlength="100"></label></div><label>Answer<textarea id="faqAnswer" maxlength="5000" rows="6" required></textarea></label><label class="checkbox-label"><input id="faqPublished" type="checkbox" checked> Published / visible</label><div class="form-actions"><button class="primary" type="submit">Save question</button><button id="cancelFaqButton" class="ghost" type="button">Cancel</button></div></form><div id="faqList" class="tour-list"></div></section>
+      </section>
+      <section id="enquiriesTab" class="tab-panel hidden">
+        <section class="card">
+          <div class="section-head"><div><h2>Enquiries</h2><p class="muted">Manage customer requests from your website.</p></div><div class="filters"><input id="searchInput" type="search" placeholder="Search name, email, destination…" autocomplete="off"><select id="statusFilter"><option value="">All</option><option value="new">New</option><option value="contacted">Contacted</option><option value="confirmed">Confirmed</option><option value="completed">Completed</option></select></div></div>
+          <div id="enquiryList" class="enquiries"></div>
+        </section>
+      </section>
+
+      <section id="toursTab" class="tab-panel hidden">
+        <section class="card">
+          <div class="section-head">
+            <div><h2>Tours & Packages</h2><p class="muted">Manage the catalogue data. Image fields accept a website path or image URL for now.</p></div>
+            <button id="addTourButton" class="primary" type="button">+ Add tour</button>
+          </div>
+          <div id="tourMessage" class="message"></div>
+          <form id="tourForm" class="tour-form hidden">
+            <input id="tourId" type="hidden">
+            <div class="form-grid">
+              <label>Tour title<input id="tourTitle" maxlength="150" required></label>
+              <label>Destination<input id="tourDestination" maxlength="100" placeholder="e.g. Skardu"></label>
+              <label>Price<input id="tourPrice" maxlength="100" placeholder="e.g. PKR 45,000"></label><label>Price amount<input id="tourPriceAmount" type="number" min="0" step="0.01" placeholder="e.g. 45000"></label><label>Currency<input id="tourPriceCurrency" maxlength="10" value="PKR" placeholder="PKR"></label><label>Price note<input id="tourPriceNote" maxlength="80" placeholder="Per person / Starting from"></label>
+              <label>Duration<input id="tourDuration" maxlength="100" placeholder="e.g. 5 Days / 4 Nights"></label>
+              <label>Difficulty<input id="tourDifficulty" maxlength="50" placeholder="e.g. Easy"></label>
+              <label>Image path / URL<input id="tourImage" maxlength="500" placeholder="assets/images/tour.jpg"></label>
+            </div>
+            <label>Included<textarea id="tourIncluded" maxlength="2500" rows="4" placeholder="Transport, hotel, guide, breakfast…"></textarea></label>
+<label>Excluded<textarea id="tourExcluded" maxlength="2500" rows="4" placeholder="Flights, personal expenses…"></textarea></label>
+<label>Description<textarea id="tourDescription" maxlength="3000" rows="5"></textarea></label>
+            <label class="checkbox-label"><input id="tourActive" type="checkbox" checked> Active / visible in catalogue</label>
+            <div class="form-actions"><button class="primary" type="submit">Save tour</button><button id="cancelTourButton" class="ghost" type="button">Cancel</button></div>
+          </form>
+          <div id="tourList" class="tour-list"></div>
+          <section class="card availability-manager"><div class="section-head"><div><h3>Tour Availability</h3><p class="muted">Manage upcoming journey dates and seat status.</p></div><button id="addAvailabilityButton" class="primary" type="button">+ Add date</button></div><div id="availabilityMessage" class="message"></div><form id="availabilityForm" class="tour-form hidden"><input id="availabilityId" type="hidden"><div class="form-grid"><label>Journey<select id="availabilityTour" required></select></label><label>Date<input id="availabilityDate" type="date" required></label><label>Seats<input id="availabilitySeats" type="number" min="0" step="1"></label><label>Status<select id="availabilityStatus"><option value="available">Available</option><option value="limited">Limited</option><option value="full">Full</option></select></label></div><label>Notes<input id="availabilityNotes" maxlength="500"></label><div class="form-actions"><button class="primary" type="submit">Save date</button><button id="cancelAvailabilityButton" class="ghost" type="button">Cancel</button></div></form><div id="availabilityList" class="tour-list"></div></section>
+        </section>
+      </section>
+
+      <section id="galleryTab" class="tab-panel hidden">
+        <section class="card">
+          <div class="section-head">
+            <div>
+              <h2>Gallery</h2>
+              <p class="muted">Manage the photos shown on the public Gallery page.</p>
+            </div>
+            <button id="addGalleryButton" class="primary" type="button">+ Add photo</button>
+          </div>
+          <div id="galleryMessage" class="message"></div>
+          <form id="galleryForm" class="tour-form hidden">
+            <input id="galleryId" type="hidden">
+            <div class="form-grid">
+              <label>Title<input id="galleryTitle" maxlength="150" placeholder="e.g. Shangrila Lake"></label>
+              <label>Category<input id="galleryCategory" maxlength="80" placeholder="e.g. Skardu"></label>
+              <label>Media type
+<select id="galleryMediaType">
+  <option value="image">Image</option>
+  <option value="video">Video</option>
+</select>
+</label>
+<label id="galleryVideoUrlWrap" style="display:none">Video URL
+<input id="galleryVideoUrl" type="url" placeholder="https://.../video.mp4">
+</label>
+<label>Image path / URL<input id="galleryImage" maxlength="500" placeholder="/assets/images/gallery/photo.jpg" required></label>
+              <label>Caption<input id="galleryCaption" maxlength="500" placeholder="Short caption"></label>
+            </div>
+            <label class="checkbox-label"><input id="galleryFeatured" type="checkbox"> Featured</label>
+            <label class="checkbox-label"><input id="galleryActive" type="checkbox" checked> Active / visible on website</label>
+            <div class="form-actions">
+              <button class="primary" type="submit">Save photo</button>
+              <button id="cancelGalleryButton" class="ghost" type="button">Cancel</button>
+            </div>
+          </form>
+          <div id="galleryList" class="gallery-admin-list"></div>
+        </section>
+      </section>
+
+
+      <section id="testimonialsTab" class="tab-panel hidden">
+        <section class="card">
+          <div class="section-head">
+            <div>
+              <h2>Testimonials</h2>
+              <p class="muted">Manage customer reviews shown on the BeyondGB website.</p>
+            </div>
+            <button id="addTestimonialButton" class="primary" type="button">+ Add testimonial</button>
+          </div>
+          <div id="testimonialMessage" class="message"></div>
+
+          <form id="testimonialForm" class="tour-form hidden">
+            <input id="testimonialId" type="hidden">
+            <div class="form-grid">
+              <label>Customer name
+                <input id="testimonialName" maxlength="120" placeholder="e.g. Ahmed Khan" required>
+              </label>
+              <label>Location
+                <input id="testimonialLocation" maxlength="120" placeholder="e.g. Lahore, Pakistan">
+              </label>
+              <label>Rating
+                <select id="testimonialRating">
+                  <option value="5">★★★★★ — 5/5</option>
+                  <option value="4">★★★★☆ — 4/5</option>
+                  <option value="3">★★★☆☆ — 3/5</option>
+                  <option value="2">★★☆☆☆ — 2/5</option>
+                  <option value="1">★☆☆☆☆ — 1/5</option>
+                </select>
+              </label>
+              <label>Photo path / URL
+                <input id="testimonialPhoto" maxlength="500" placeholder="Optional image URL">
+              </label>
+            </div>
+            <label>Review
+              <textarea id="testimonialReview" maxlength="2000" rows="6" placeholder="Write the customer's review…" required></textarea>
+            </label>
+            <label class="checkbox-label">
+              <input id="testimonialPublished" type="checkbox" checked>
+              Published / visible on website
+            </label>
+            <div class="form-actions">
+              <button class="primary" type="submit">Save testimonial</button>
+              <button id="cancelTestimonialButton" class="ghost" type="button">Cancel</button>
+            </div>
+          </form>
+
+          <div id="testimonialList" class="testimonial-admin-list"></div>
+        </section>
+      </section>
+
+      <section id="settingsTab" class="tab-panel hidden">
+        <section class="card">
+          <div class="section-head">
+            <div>
+              <h2>Site Settings</h2>
+              <p class="muted">Manage the contact, company, social and basic SEO information used across the website.</p>
+            </div>
+          </div>
+          <div id="settingsMessage" class="message"></div>
+          <form id="settingsForm" class="tour-form">
+            <div class="form-grid">
+              <label>Company name<input id="settingCompanyName" maxlength="150"></label>
+              <label>Phone<input id="settingPhone" maxlength="40" placeholder="+92 341 5771154"></label>
+              <label>WhatsApp number<input id="settingWhatsapp" maxlength="40" placeholder="923415771154"></label>
+              <label>Email<input id="settingEmail" type="email" maxlength="150" placeholder="info@example.com"></label>
+              <label>Address<input id="settingAddress" maxlength="250"></label>
+              <label>Opening / contact hours<input id="settingOpeningHours" maxlength="250" placeholder="Mon–Sat, 9 AM–6 PM"></label>
+              <label>Logo path / URL<input id="settingLogo" maxlength="500" placeholder="assets/logo/logo.jpg"></label>
+            </div>
+            <label>Company description<textarea id="settingCompanyDescription" maxlength="500" rows="3"></textarea></label>
+            <div class="settings-subhead"><h3>Social media</h3><p class="muted">Leave unused profiles blank.</p></div>
+            <div class="form-grid">
+              <label>Facebook<input id="settingFacebook" maxlength="500" placeholder="https://facebook.com/..."></label>
+              <label>Instagram<input id="settingInstagram" maxlength="500" placeholder="https://instagram.com/..."></label>
+              <label>YouTube<input id="settingYoutube" maxlength="500" placeholder="https://youtube.com/..."></label>
+              <label>TikTok<input id="settingTiktok" maxlength="500" placeholder="https://tiktok.com/@..."></label>
+            </div>
+            <div class="settings-subhead"><h3>Basic SEO defaults</h3><p class="muted">Used as the site's default title/description where appropriate. Detailed page SEO comes in Step 29.</p></div>
+            <label>Default SEO title<input id="settingSeoTitle" maxlength="180"></label>
+            <label>Default SEO description<textarea id="settingSeoDescription" maxlength="320" rows="3"></textarea></label>
+            <div class="settings-subhead"><h3>Trip cost calculator</h3><p class="muted">Select a tour to set its own starting price and add-on rates. Leave it on General rates to set the default values used when a tour has no custom pricing.</p></div>
+            <label>Tour / Journey (optional)<select id="settingCalcTour"><option value="">General calculator rates</option></select></label>
+            <div class="form-grid">
+              <label>Starting price / person (PKR)<input id="settingCalcTourBasePrice" type="number" min="0" step="500"></label>
+              <label>Standard accommodation / night<input id="settingCalcStandardAccommodation" type="number" min="0" step="100"></label>
+              <label>Comfort accommodation / night<input id="settingCalcComfortAccommodation" type="number" min="0" step="100"></label>
+              <label>Premium accommodation / night<input id="settingCalcPremiumAccommodation" type="number" min="0" step="100"></label>
+              <label>Shared transport / day<input id="settingCalcSharedTransport" type="number" min="0" step="100"></label>
+              <label>Private transport / day<input id="settingCalcPrivateTransport" type="number" min="0" step="100"></label>
+              <label>Luxury transport / day<input id="settingCalcLuxuryTransport" type="number" min="0" step="100"></label>
+              <label>Activities / person<input id="settingCalcActivity" type="number" min="0" step="100"></label>
+            </div>
+            <div class="form-actions"><button class="primary" type="submit">Save settings</button></div>
+          </form>
+        </section>
+      </section>
+
+      <section id="destinationsTab" class="tab-panel hidden">
+        <section class="card">
+          <div class="section-head">
+            <div>
+              <h2>Destinations</h2>
+              <p class="muted">Manage the destinations shown on the BeyondGB website.</p>
+            </div>
+            <button id="addDestinationButton" class="primary" type="button">+ Add destination</button>
+          </div>
+          <div id="destinationMessage" class="message"></div>
+          <form id="destinationForm" class="tour-form hidden">
+            <input id="destinationId" type="hidden">
+            <div class="form-grid">
+              <label>Destination name<input id="destinationName" maxlength="150" placeholder="e.g. Hunza Valley" required></label>
+              <label>Slug<input id="destinationSlug" maxlength="150" placeholder="e.g. hunza-valley"></label>
+              <label>Region / location<input id="destinationRegion" maxlength="150" placeholder="e.g. Hunza, Gilgit-Baltistan"></label>
+              <label>Best season<input id="destinationBestSeason" maxlength="150" placeholder="e.g. April – October"></label>
+              <label>Starting price / person (PKR)<input id="destinationPriceAmount" type="number" min="0" step="500" placeholder="e.g. 25000"></label>
+              <label>Image path / URL<input id="destinationImage" maxlength="500" placeholder="assets/images/hunza.jpg"></label>
+            </div>
+            <label>Description<textarea id="destinationDescription" maxlength="3000" rows="5" placeholder="Short description of the destination"></textarea></label>
+            <label>Highlights<textarea id="destinationHighlights" maxlength="2000" rows="4" placeholder="Attabad Lake, Baltit Fort, Passu Cones, local villages…"></textarea></label>
+            <label class="checkbox-label"><input id="destinationActive" type="checkbox" checked> Active / visible on website</label>
+            <div class="form-actions">
+              <button class="primary" type="submit">Save destination</button>
+              <button id="cancelDestinationButton" class="ghost" type="button">Cancel</button>
+            </div>
+          </form>
+          <div id="destinationList" class="tour-list"></div>
+        </section>
+      </section>
+    </section>
+  </main>
+  <script src="/admin/admin.js?v=19" defer></script>
+</body>
+</html>

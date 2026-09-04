@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Plan Your Trip | BeyondGB</title>
+  <meta name="description"
+    content="Tell us where you want to go and what you want to experience. We’ll take it from there.">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style id="plan-your-trip-center-fix">
+    .plan-your-trip-page .cta,
+    .plan-your-trip-page .cta-container,
+    .plan-your-trip-page .cta-content {
+      text-align: center;
+    }
+
+    .plan-your-trip-page .cta h1,
+    .plan-your-trip-page .cta h2,
+    .plan-your-trip-page .cta h3,
+    .plan-your-trip-page .cta p,
+    .plan-your-trip-page .cta-container h1,
+    .plan-your-trip-page .cta-container h2,
+    .plan-your-trip-page .cta-container h3,
+    .plan-your-trip-page .cta-container p,
+    .plan-your-trip-page .cta-content h1,
+    .plan-your-trip-page .cta-content h2,
+    .plan-your-trip-page .cta-content h3,
+    .plan-your-trip-page .cta-content p {
+      text-align: center;
+    }
+  </style>
+
+<script src="../js/seo-performance.js?v=1" defer></script>
+</head>
+
+<body class="plan-your-trip-page">
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="top-links"><a href="tel:+923415771154">+92 341 5771154</a><a href="https://wa.me/923415771154"
+          target="_blank">WhatsApp</a><span>Gilgit-Baltistan, Pakistan</span></div>
+    </div>
+  </div>
+  <header class="nav">
+    <div class="container nav-inner"><a class="brand" href="../index.html"><img src="../assets/logo/logo.webp"
+          alt="BeyondGB logo" loading="eager" decoding="async"><span class="brand-text">BEYONDGB</span></a>
+      <nav class="nav-links"><a href="../pages/about.html">About</a><a href="../pages/services.html">Services</a><a
+          href="../pages/destinations.html">Destinations</a><a href="../pages/tours.html">Journeys</a><a
+          href="../pages/gallery.html">Gallery</a><a href="../pages/blog.html">Journal</a><a
+          href="../pages/faq.html">FAQ</a><a class="btn btn-primary" href="../pages/plan.html">Plan Your Trip</a></nav>
+      <button class="menu-btn" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+  <section class="inner-hero">
+    <div class="container">
+      <div class="breadcrumbs">Home / Plan Your Trip</div>
+      <h1>Design your journey</h1>
+      <p>Tell us where you want to go and what you want to experience. We’ll take it from there.</p>
+    </div>
+  </section>
+  <section class="section planner">
+    <div class="container planner-grid">
+      <div><span class="eyebrow">Private enquiry</span>
+        <h2>Tell us what you're imagining.</h2>
+        <p>Send the basics. We'll discuss availability, pricing and payment privately. No online payment is required.
+        </p>
+        <div class="planner-points">
+          <div><span>✓</span> Customized response</div>
+          <div><span>✓</span> Private pricing discussion</div>
+          <div><span>✓</span> WhatsApp follow-up</div>
+          <div><span>✓</span> No payment details collected</div>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3>Plan Your Journey</h3>
+        <p class="sub">Fields can be customized later.</p>
+        <form id="quoteForm">
+          <input type="hidden" name="tour_id" id="planTourId">
+        >
+          <input
+    type="text"
+    name="website"
+    autocomplete="off"
+    tabindex="-1"
+    style="position:absolute; left:-9999px;"
+>
+  >
+          <div class="form-grid">
+            <div class="field"><label>Full name *</label><input name="name" required></div>
+            <div class="field"><label>Email *</label><input name="email" type="email" required></div>
+            <div class="field"><label>WhatsApp / phone *</label><input name="phone" required></div>
+            <div class="field"><label>Service *</label><select name="service" required>
+                <option value="">Select</option>
+                <option>Customized Tours</option>
+                <option>Tour & Travels</option>
+                <option>Rent a Car</option>
+                <option>Hotel Booking</option>
+                <option>Festival Tours</option>
+                <option>Bike Tour</option>
+                <option>Trekking</option>
+                <option>Village Tour</option>
+              </select></div>
+            <div class="field"><label>Destination *</label><select name="destination" id="planDestination" required><option value="">Select destination</option><option value="__other__">Other</option></select><input name="custom_destination" id="planCustomDestination" class="hidden" placeholder="Enter your destination" maxlength="100" aria-label="Custom destination"></div>
+            <div class="field"><label>Travel date</label><input name="date" type="date"></div>
+            <div class="field"><label>Travelers</label><input name="travelers" type="number" min="1"></div>
+            <div class="field"><label>Budget / preference</label><input name="budget" placeholder="e.g. PKR 100,000"></div>
+            <div class="field"><label>Accommodation preference</label><select name="accommodation"><option value="">Any / Not sure</option><option>Budget</option><option>Standard</option><option>Comfort</option><option>Luxury</option><option>Camping</option></select></div>
+            <div class="field"><label>Transport preference</label><select name="transport"><option value="">Any / Not sure</option><option>Private car</option><option>Coaster / group transport</option><option>Jeep / 4x4</option><option>Motorbike</option><option>Public transport</option></select></div>
+            <div class="field full"><label>Tell us about your trip</label><textarea name="message" placeholder="Activities, places, special requests, or anything else you want us to know."></textarea></div>
+          </div><button class="btn btn-primary form-submit" type="submit">Send My Request →</button>
+          <p class="form-note">Do not enter card numbers, passwords or highly sensitive information.</p>
+          <div class="form-message" id="formMessage" style="display:block; margin-top:20px; font-weight:bold;"></div>
+
+
+
+          <div class="success-modal" id="successModal">
+              <div class="success-modal-box">
+                <div class="success-icon">✓</div>
+
+                <h2>Request Sent Successfully!</h2>
+
+                 <p>
+                   Thank you for contacting BeyondGB.
+                    We'll get back to you shortly.
+                </p>
+
+            <button type="button" id="successClose">
+                  OK
+                   </button>
+               </div>
+           </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="../assets/logo/logo.webp" alt="BeyondGB logo" loading="lazy" decoding="async"
+          <p>Travel, tours and mountain experiences across Gilgit-Baltistan, designed around you.</p><a
+            class="btn btn-primary"
+            href="https://wa.me/923415771154?text=Hello%20BeyondGB%2C%20I%27d%20like%20to%20plan%20a%20trip."
+            target="_blank">WhatsApp us</a>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <div class="footer-links"><a href="../services/customized-tours.html">Customized Tours</a><a
+              href="../services/tour-travels.html">Tour & Travels</a><a href="../services/rent-a-car.html">Rent a
+              Car</a><a href="../services/hotel-booking.html">Hotel Booking</a><a
+              href="../services/festival-tours.html">Festival Tours</a><a href="../services/bike-tour.html">Bike
+              Tour</a><a href="../services/trekking.html">Trekking</a><a href="../services/village-tour.html">Village
+              Tour</a></div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <div class="footer-links"><a href="../destinations/hunza.html">Hunza</a><a
+              href="../destinations/skardu.html">Skardu</a><a href="../destinations/deosai.html">Deosai</a><a
+              href="../destinations/shigar.html">Shigar</a><a href="../destinations/fairy-meadows.html">Fairy
+              Meadows</a><a href="../destinations/khunjerab-pass.html">Khunjerab Pass</a></div>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <div class="footer-links"><a href="../pages/contact.html">Contact</a><a href="../pages/faq.html">FAQ</a><a
+              href="../pages/privacy.html">Privacy</a><a href="../pages/terms.html">Terms</a><a
+              href="tel:+923415771154">+92 341 5771154</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 BeyondGB. All rights reserved.</span><span>No online payments — discuss
+          your trip privately with our team.</span></div>
+    </div>
+  </footer><a class="whatsapp-float"
+    href="https://wa.me/923415771154?text=Hello%20BeyondGB%2C%20I%27d%20like%20to%20plan%20a%20trip." target="_blank"
+    aria-label="WhatsApp BeyondGB">WA</a>
+  <script src="../js/app.js" defer></script>
+<script src="/js/travel-assistant.js" defer></script></body>
+
+</html>

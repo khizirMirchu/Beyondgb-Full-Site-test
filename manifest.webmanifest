@@ -1,0 +1,13 @@
+{
+  "name": "BeyondGB — Gilgit-Baltistan Travel",
+  "short_name": "BeyondGB",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#111111",
+  "description": "Explore Gilgit-Baltistan with BeyondGB journeys, destinations and travel planning.",
+  "icons": [
+    {"src":"/assets/logo/logo.webp","sizes":"488x488","type":"image/webp","purpose":"any"}
+  ]
+}
